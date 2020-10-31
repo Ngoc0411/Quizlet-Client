@@ -1,62 +1,44 @@
 <template>
-    <v-card width="100%">
-      <v-container fluid grid-list-md>
-          <v-layout >
-            <v-flex xs12>
-              <v-layout>
-                <v-flex xs12>
-                  <v-data-table
-                    :headers="headers"
-                    :items="danhSachSanPham"
-                    :items-per-page="15"
-                    class="elevation-1"
-                    style="width : 100%"
-                  >
-                  </v-data-table>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-      </v-container>
-    </v-card>
+    <v-container fluid>
+      <v-row dense>
+        <v-col
+          v-for="card in cards"
+          :key="card.TenHocPhan"
+          :cols="6"
+        >
+          <v-card>
+          
+            <v-card-title v-text="card.TenHocPhan"></v-card-title>
+            <v-card-subtitle v-text="card.MoTa"></v-card-subtitle>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn icon>
+                <v-icon>mdi-heart</v-icon>
+              </v-btn>
+
+              <v-btn icon>
+                <v-icon>mdi-bookmark</v-icon>
+              </v-btn>
+
+              <v-btn icon>
+                <v-icon>mdi-share-variant</v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
 </template>
+
 <script>
-export default {
-  name: 'App',
-  components:{
-  },
-  data() {
-    return{
-      isUpdate : false,
-      dialogDelete : false,
-      danhSachSanPham : [],
-      sanPhamCanXoa : {},
-      searchKeywords : "",
-      headers: [
-          {
-            isUpdate : false,
-            search:'',
-            text: 'Tên sản phẩm',
-            align: 'center',
-            sortable: false,
-            value: 'TenSanPham',
-          },
-          { text: 'Hình ảnh', value: 'HinhAnh', align: 'center'},
-          { text: 'Loại sản phẩm', value: 'TenLoaiSanPham', align: 'center'},
-          { text: 'Thương hiệu', value: 'TenThuongHieu', align: 'center'},
-          { text: 'Giá mua vào', value: 'GiaMuaVao', align: 'center'},
-          { text: 'Giá bán ra', value: 'GiaBanRa', align: 'center'},
-          { text: 'Số lượng trong kho', value: 'SoLuong', align: 'center'},
-          { text: 'Mô tả ngắn', value: 'MoTaNgan', align: 'center'},
-          { text: 'Mô Tả chi tiết', value: 'MoTa', align: 'center'},
-          { text: 'Thao tác', value: 'thaotac', align: 'center'},
-        ],
-    }
-  },
-  created(){
-      this.getData();
-    },
-  methods: {
-  },
-};
+  export default {
+    data: () => ({
+      cards: [
+        { TenHocPhan: 'ajhsbdbsabdd', TenNguoiTao: 'kdsfjdsfds', MoTa: 'jkfkdbsfbkfdjsbfkds',},
+        { TenHocPhan: 'ajhsbdbssabd', TenNguoiTao: 'kdsfjdsfds', MoTa: 'jkfkdbsfbkfdjsbfkds',},
+        { TenHocPhan: 'ajhsbdbsabrd', TenNguoiTao: 'kdsfjdsfds', MoTa: 'jkfkdbsfbkfdjsbfkds',},
+      ],
+    }),
+  }
 </script>
