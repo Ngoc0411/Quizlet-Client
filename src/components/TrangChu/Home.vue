@@ -5,14 +5,8 @@
             <v-flex xs12>
               <v-layout>
                 <v-flex xs12>
-                  <v-data-table
-                    :headers="headers"
-                    :items="danhSachSanPham"
-                    :items-per-page="15"
-                    class="elevation-1"
-                    style="width : 100%"
-                  >
-                  </v-data-table>
+
+                  
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -54,7 +48,6 @@ export default {
     }
   },
   created(){
-      this.getData();
     },
   methods: {
   },
